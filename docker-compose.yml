@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: opsboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: opsboard
+      POSTGRES_PASSWORD: opsboard_dev
+      POSTGRES_DB: opsboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - opsboard_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  opsboard_postgres_data:
